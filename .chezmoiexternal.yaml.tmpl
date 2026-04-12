@@ -1,0 +1,30 @@
+.oh-my-zsh:
+  url: https://github.com/ohmyzsh/ohmyzsh/archive/master.tar.gz
+  type: archive
+  stripComponents: 1
+  refreshPeriod: 168h
+
+.oh-my-zsh/custom/plugins/zsh-autosuggestions:
+  url: https://github.com/zsh-users/zsh-autosuggestions.git
+  type: git-repo
+  refreshPeriod: 168h
+
+.oh-my-zsh/custom/plugins/zsh-syntax-highlighting:
+  url: https://github.com/zsh-users/zsh-syntax-highlighting.git
+  type: git-repo
+  refreshPeriod: 168h
+
+{{- if .isWorkMachine }}
+.local/bin/oc:
+  url: {{ printf "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux-%s.tar.gz" .versions.oc }}
+  type: archive-file
+  path: oc
+  executable: true
+
+.local/bin/helm:
+  url: {{ printf "https://get.helm.sh/helm-v%s-linux-amd64.tar.gz" .versions.helm }}
+  type: archive-file
+  stripComponents: 1
+  path: helm
+  executable: true
+{{- end }}

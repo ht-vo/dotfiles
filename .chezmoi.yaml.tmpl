@@ -1,0 +1,22 @@
+{{- $isPersonalMachine := false }}
+{{- $isWorkMachine := false }}
+{{- $personalEmail := "" }}
+{{- $personalSshPubKey := "" }}
+
+{{- if eq .chezmoi.os "darwin" }}
+  {{- $isPersonalMachine = true }}
+  {{- $personalEmail := promptString "Enter your Git personal email" }}
+  {{- $personalSshPubKey := promptString "Paste your SSH public key" }}
+{{- end }}
+
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "fedora") }}
+  {{- $isWorkMachine = true }}
+{{- end }}
+
+data:
+  isPersonalMachine: {{ $isPersonalMachine }}
+  isWorkMachine: {{ $isWorkMachine }}
+  {{- if $isPersonalMachine }}
+  personalEmail: {{ $personalEmail }}
+  personalSshPubKey: {{ $personalSshPubKey }}
+  {{- end }}

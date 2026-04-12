@@ -1,0 +1,22 @@
+#!{{ lookPath "bash" }}
+{{- if .isWorkMachine }}
+
+# Update DNF metadata and packages
+sudo dnf update --assumeyes --refresh
+
+# Install DNF and Flatpak packages
+{{- if hasKey .packages .chezmoi.osRelease.id }}
+  {{- $data := index .packages .chezmoi.osRelease.id }}
+
+  {{- if hasKey $data "dnf" }}
+    sudo dnf install --assumeyes {{ $data.dnf | join " " }}
+  {{- end }}
+
+  {{- if hasKey $data "flatpak" }}
+    flatpak install --assumeyes {{ $data.flatpak | join " " }}
+  {{- end }}
+{{- end }}
+
+# Install ansible
+pipx install --include-deps ansible --force
+{{- end }}

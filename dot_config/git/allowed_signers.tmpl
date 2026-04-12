@@ -1,0 +1,3 @@
+{{- if .isPersonalMachine }}
+{{- printf "%s %s" .personalEmail .personalSshPubKey }}
+{{- end }}

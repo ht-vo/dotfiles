@@ -1,0 +1,3 @@
+versions:
+  oc: 4.21.9
+  helm: 4.1.4

@@ -1,0 +1,15 @@
+{{- if .isPersonalMachine }}
+[user]
+    name = Thanh VO
+    email = {{ .personalEmail }}
+    signingkey = {{ .personalSshPubKey }}
+[core]
+    editor = code --wait
+    whitespace = -trailing-space,tab-in-indent
+[commit]
+    gpgsign = true
+[gpg]
+    format = ssh
+[gpg "ssh"]
+    allowedSignersFile = ~/.config/git/allowed_signers
+{{- end }}

@@ -1,0 +1,10 @@
+packages:
+  fedora:
+    dnf:
+      - neovim
+      - tmux
+      - xsel
+      - pipx
+    flatpak:
+      - com.bitwarden.desktop
+      - md.obsidian.Obsidian
