@@ -1,0 +1,64 @@
+{
+  // Workbench
+  "workbench.settings.editor": "json",
+  "workbench.colorTheme": "Catppuccin Frappé",
+  "workbench.iconTheme": "catppuccin-mocha",
+  "workbench.activityBar.location": "hidden",
+  "workbench.sideBar.location": "right",
+
+  // Editor
+  "editor.fontFamily": "'Hack Nerd Font'",
+  "editor.fontSize": 14,
+  "editor.fontLigatures": true,
+  "editor.lineHeight": 1.6,
+  "editor.cursorStyle": "block",
+  "editor.cursorBlinking": "solid",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.foldingImportsByDefault": true,
+  "editor.inlayHints.enabled": "offUnlessPressed",
+  "editor.minimap.enabled": false,
+  "editor.showFoldingControls": "always",
+  "editor.stickyScroll.enabled": true,
+  "editor.renderWhitespace": "boundary",
+
+  // Files + Explorer
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "explorer.compactFolders": false,
+  "explorer.decorations.badges": false,
+  "explorer.decorations.colors": false,
+  "explorer.sortOrder": "type",
+
+  // Window
+  "window.commandCenter": false,
+  "window.menuBarVisibility": "compact",
+  "breadcrumbs.enabled": false,
+
+  // Search
+  "search.smartCase": true,
+  "search.showLineNumbers": true,
+
+  // Notification
+  "task.notifyWindowOnTaskCompletion": 0,
+
+  // Source Control
+  "scm.inputMinLineCount": 3,
+  "scm.inputMaxLineCount": 10,
+
+  // Terminal
+  "terminal.integrated.enablePersistentSessions": false,
+  "terminal.integrated.fontFamily": "'Hack Nerd Font'",
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.lineHeight": 1.2,
+  "terminal.integrated.cursorStyle": "block",
+  "terminal.integrated.cursorBlinking": false,
+
+  // GitHub Copilot
+  "chat.disableAIFeatures": true,
+
+  // Telemetry
+  "telemetry.telemetryLevel": "off",
+  "telemetry.feedback.enabled": false,
+}

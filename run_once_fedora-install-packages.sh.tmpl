@@ -1,6 +1,20 @@
 #!{{ lookPath "bash" }}
 {{- if .isWorkMachine }}
 
+# Add vscode repository
+if [ ! -f /etc/yum.repos.d/vscode.repo ]; then
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+
+    cat << 'EOF' | sudo tee /etc/yum.repos.d/vscode.repo
+[code]
+name=Visual Studio Code
+baseurl=https://packages.microsoft.com/yumrepos/vscode
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc
+EOF
+fi
+
 # Update DNF metadata and packages
 sudo dnf update --assumeyes --refresh
 
@@ -19,4 +33,9 @@ sudo dnf update --assumeyes --refresh
 
 # Install ansible
 pipx install --include-deps ansible --force
+
+# Install vscode extensions
+{{- range .vscode.extensions }}
+code --install-extension {{ . }} --force
+{{- end }}
 {{- end }}

@@ -2,6 +2,7 @@ packages:
   fedora:
     dnf:
       - neovim
+      - code
       - tmux
       - xsel
       - pipx
