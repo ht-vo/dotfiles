@@ -1,0 +1,20 @@
+#!{{ lookPath "bash" }}
+{{- if .isWorkMachine }}
+
+# Authenticate the gcloud CLI
+gcloud auth login {{ .workEmail }} --no-launch-browser
+
+# Set the default project
+gcloud config set project {{ .gcpProjectId }}
+
+# Generate ADC for Claude Code / Vertex AI
+gcloud auth application-default login --no-launch-browser
+
+# Set the quota project
+gcloud auth application-default set-quota-project {{ .gcpQuotaProject }}
+
+# Install Claude Code
+if [ ! -f ~/.local/bin/claude ]; then
+    curl -fsSL https://claude.ai/install.sh | bash
+fi
+{{- end }}

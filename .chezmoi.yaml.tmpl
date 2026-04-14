@@ -2,6 +2,9 @@
 {{- $isWorkMachine := false }}
 {{- $personalEmail := "" }}
 {{- $personalSshPubKey := "" }}
+{{- $workEmail := "" }}
+{{- $gcpProjectId := "" }}
+{{- $gcpQuotaProject := "" }}
 
 {{- if eq .chezmoi.os "darwin" }}
   {{- $isPersonalMachine = true }}
@@ -11,6 +14,9 @@
 
 {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "fedora") }}
   {{- $isWorkMachine = true }}
+  {{- $workEmail = promptStringOnce . "workEmail" "Enter your work email address" }}
+  {{- $gcpProjectId = promptStringOnce . "gcpProjectId" "Vertex AI (Claude Code) - Enter the Google Project ID" }}
+  {{- $gcpQuotaProject = promptStringOnce . "gcpQuotaProject" "Vertex AI (Claude Code) - Enter the Google Quota Project"}}
 {{- end }}
 
 data:
@@ -19,4 +25,9 @@ data:
   {{- if $isPersonalMachine }}
   personalEmail: {{ $personalEmail }}
   personalSshPubKey: {{ $personalSshPubKey }}
+  {{- end }}
+  {{- if $isWorkMachine }}
+  workEmail: {{ $workEmail }}
+  gcpProjectId: {{ $gcpProjectId }}
+  gcpQuotaProject: {{ $gcpQuotaProject }}
   {{- end }}

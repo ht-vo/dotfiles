@@ -6,6 +6,7 @@ packages:
       - tmux
       - xsel
       - pipx
+      - google-cloud-cli
     flatpak:
       - com.bitwarden.desktop
       - md.obsidian.Obsidian
