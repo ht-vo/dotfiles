@@ -1,0 +1,6 @@
+#!{{ lookPath "bash" }}
+
+# Install vscode extensions
+{{- range .vscode.extensions }}
+code --install-extension {{ . }} --force
+{{- end }}
