@@ -1,8 +1,8 @@
 {{ if .isPersonalMachine }}
 [user]
     name = Thanh VO
-    email = {{ .personalEmail }}
-    signingkey = {{ .personalSshPubKey }}
+    email = {{ .personalGitEmail }}
+    signingkey = {{ .personalGitSshPubKey }}
 [core]
     editor = code --wait
     whitespace = -trailing-space,tab-in-indent
