@@ -1,6 +1,6 @@
 #!{{ lookPath "bash" }}
-{{- if .isWorkMachine }}
 
+{{ if .isWorkMachine -}}
 # Authenticate the gcloud CLI
 gcloud auth login {{ .workEmail }} --no-launch-browser
 

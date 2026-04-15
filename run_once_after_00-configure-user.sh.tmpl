@@ -1,0 +1,12 @@
+#!{{ lookPath "bash" }}
+
+# Change shell to zsh
+{{ if eq .chezmoi.os "linux" -}}
+CURRENT_SHELL=$(getent passwd {{ .chezmoi.username | quote }} | cut -d ':' -f 7)
+ZSH_PATH={{ lookPath "zsh" | quote }}
+
+if [ "${CURRENT_SHELL}" != "${ZSH_PATH}" ]; then
+    sudo sss_override user-add {{ .chezmoi.username | quote }} -s "${ZSH_PATH}"
+    sudo systemctl restart sssd
+fi
+{{- end }}

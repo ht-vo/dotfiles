@@ -1,10 +1,9 @@
 #!{{ lookPath "bash" }}
-{{- if .isWorkMachine }}
 
+{{ if .isWorkMachine -}}
 # Add vscode repository
 if [ ! -f /etc/yum.repos.d/vscode.repo ]; then
     sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-
     cat << 'EOF' | sudo tee /etc/yum.repos.d/vscode.repo
 [code]
 name=Visual Studio Code
