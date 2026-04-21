@@ -55,6 +55,10 @@
   "terminal.integrated.cursorStyle": "block",
   "terminal.integrated.cursorBlinking": false,
 
+  // Extensions
+  "extensions.ignoreRecommendations": true,
+  "dev.containers.dockerPath": "podman",
+
   // GitHub Copilot
   "chat.disableAIFeatures": true,
 
